@@ -7,7 +7,7 @@
 - [x] Load users by internal id
 - [x] Create free group with member list (internal ids)
     - [ ] Add profile image support
-- [x] Implement group tree creation
+- [x] Implement nested group creation
     - [x] Subgroup creation
     - [ ] Process json config files
     - [ ] Add role support
