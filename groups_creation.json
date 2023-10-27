@@ -1,0 +1,35 @@
+// quick writeup of the grouptree data storing format
+
+
+{
+  "details": {
+    "main": true,
+    "parent_id": -1, // only valid if main == false insert parent id
+    "features": [true, false, true, true, false], // [chat, callendar, files, forms, anfrage]
+    "name": "Name",
+    "name_short": "NA", // (optional) generate short name from name (first two letters of first word or first letter of first and second word)
+    "description": "str", // (optional)
+    "image": "image as base64", // (optional)
+    "color": "#ffffff" // hex color code (optional)
+    "members": [] // list of internal ids; (optional) if left out only creator will be added
+    "sub_groups": [
+      {
+        "repeat": 3, //how many of these should be created; 1 is default
+        "repeat_patter": "list", // only used if repeat > 1; "none" if no variable is given; "number" if group index (starting 1) should be used; "list" for a list of strings to be inserted
+        "repeat_list": ["a", "bb", "c"], // only used if repeat pattern is "list"; if shorter than number of repeats, take modulo with list length
+        "features": [true, false, true, true, false], // [chat, callendar, files, forms, anfrage] // (optional)
+        "name": "Name %var%", // every instance of "%var%" is replaced by repeat pattern if pattern is not "none"
+        "name_short": "NA", // (optional) generate short name from name (first two letters of first word or first letter of first and second word)
+        "description": "str", // (optional)
+        "image": "image as base64", // (optional)
+        "color": "#ffffff" // hex color code (optional)
+        "inheritance": true, // (optional)
+        "members": [] // list of internal ids, only used if inheritance is false; (optional) if left out only creator will be added
+        "sub_groups": [] // (optional)
+      }
+    ]
+  }
+}
+
+
+
