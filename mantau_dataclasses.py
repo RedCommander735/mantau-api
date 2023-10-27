@@ -112,7 +112,7 @@ class Color(Enum):
     LIGHT_BLUE = "007ACC"
     GREEN = "006100"
     BLACK = "000000"
-    GREY = "828282"
+    GRAY = "828282"
 
 
 @dataclass(slots=True)
