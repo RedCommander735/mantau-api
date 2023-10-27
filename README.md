@@ -7,9 +7,10 @@
 - [x] Load users by internal id
 - [x] Create free group with member list (internal ids)
     - [ ] Add profile image support
-- [ ] Implement group tree creation
-    - [ ] Subgroup creation
-    - [ ] Process new wierd config files
+- [x] Implement group tree creation
+    - [x] Subgroup creation
+    - [ ] Process json config files
     - [ ] Add role support
+    - [ ] Maybe eventually add support for repeating subgroups
 - [ ] Parse external ids and email adress to internal id
 - [ ] Send message in chat

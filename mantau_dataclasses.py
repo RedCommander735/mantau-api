@@ -98,32 +98,35 @@ class RepeatPattern(Enum):
     LIST: str = "list"
 
 
-@dataclass(slots=True)
-class GroupTreeSettings:
-    main: bool
-    parent_id: int
-    name: str
-    repeat: int
-    repeat_pattern: RepeatPattern = field(default=RepeatPattern.NONE)
-    repeat_list: list[str] = field(default_factory=list)
-    features: GroupFeatures = field(default_factory=GroupFeatures)
-    short_name: str | None = field(default=None)
-    description: str = field(default="")
-    image: str | None = field(default=None, repr=False)
-    color: str = field(default="a4dce2")
-    inheritance: bool = field(default=False)
-    members: list[int] = field(default_factory=list)
-    sub_groups: list[GroupTreeSettings] = field(default_factory=list)
+class Promise(Enum):
+    PARENT_ID: str = "promise"
+
+
+class Color(Enum):
+    YELLOW = "FFDD52"
+    ORANGE = "E07700"
+    RED = "9F0800"
+    PINK = "FF77E3"
+    PURPLE = "6D00C2"
+    BLUE = "003AFF"
+    LIGHT_BLUE = "007ACC"
+    GREEN = "006100"
+    BLACK = "000000"
+    GREY = "828282"
 
 
 @dataclass(slots=True)
 class GroupSettings:
-    # main: bool
-    # parent_id: int
+    main: bool
     name: str
+    parent_id: int | Promise.PARENT_ID = field(default=Promise.PARENT_ID)
     features: GroupFeatures = field(default_factory=GroupFeatures)
     short_name: str | None = field(default=None)
     description: str = field(default="")
     # image: str | None = field(default=None, repr=False)
-    color: str = field(default="a4dce2")
+    color: str | Color = field(default="a4dce2")
+    inheritance: bool = field(default=False)
+    inherit_authors: bool = field(default=False)
+    inherit_mods: bool = field(default=False)
     members: list[int] = field(default_factory=list)
+    sub_groups: list[GroupSettings] | None = field(default=None)
